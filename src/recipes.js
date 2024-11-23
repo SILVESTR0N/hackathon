@@ -39,9 +39,9 @@ async function trackRecipe(user, recipe){
   throw error
 }
 */
-async function addRecipe(name, cuisine_, time, diet_, main_ingredient, user_){
+async function addRecipe(name, cuisine_, time, diet_, main_ingredient){
   let inRecipe = {
-    user: user_,
+    user: 'John Henry',
     title: name,
     cuisine: cuisine_,
     maxReadyTime: time,
