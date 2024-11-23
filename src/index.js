@@ -30,6 +30,11 @@ app.get('/search/:myparameters', authMiddleware, async (req, res) => {
   res.send(`Try to make: ${recipe}`)
 })
 
+name, cuisine_, time, diet_, main_ingredient
+app.get('/add/:myparameters', async (req, res) => {
+  const outParameters = (req.params.myparameters).split("_")
+  res.send(`Added Recipe: ${outParameters}`)
+})
 app.use(authMiddleware);
 
 // add routers to the app
