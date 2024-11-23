@@ -24,7 +24,7 @@ app.get("/ping", (_, res) => {
 app.get('/search/:myparameters', async (req, res) => {
   const parameters = (req.params.myparameters).split("_")
   const recipe = searchRecipe(parameters)
-  res.send(`Try to make:<br/>${recipe}`)
+  res.send(`Try to make: ${recipe}`)
 })
 
 app.use(authMiddleware);
