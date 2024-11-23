@@ -26,3 +26,24 @@ export function initSupabase() {
     process.exit(1);
   }
 }
+
+async function login(email_, password_){
+  const {data, error} = await supabase.auth.signInWithPassword({
+    email: email_,
+    password: password_
+  })
+  if(error){
+    console.log(error)
+  }else{
+    console.log(data)
+  }
+}
+
+async function logout() {
+  const { error } = await supabase.auth.signOut()
+  if(error) {
+      console.log(error)
+  } 
+}
+
+module.exports = {login, logout}
