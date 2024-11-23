@@ -17,15 +17,14 @@ async function trackRecipe(user, recipe){
   return
 }
 
-async function searchRecipe(cuisine, time, diet, main_ingredient){
+async function searchRecipe(parameters){
   const endpoint = 'https://api.spoonacular.com/recipes/complexSearch';
-
   const params = new URLSearchParams({
     apiKey: spoon_key,
-    cuisune: cuisine,
-    maxReadyTime: time,
-    diet: diet,
-    includeIngredients: main_ingredient,
+    cuisune: parameters[0],
+    maxReadyTime: parameters[1],
+    diet: parameters[2],
+    includeIngredients: parameters[3],
     number: 1
   })
   try {
