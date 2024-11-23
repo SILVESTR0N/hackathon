@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-
+const {searchRecipe, addRecipe} = require('./recipes')
 initSupabase();
 
 // Middleware
@@ -20,6 +20,12 @@ app.use(express.json());
 app.get("/ping", (_, res) => {
   res.json({ message: "pong" });
 });
+
+app.get('/search/:parameters', async (req, res) => {
+  const parameters = (req.params.coverage).split("_")
+  const recipe = searchRecipe(parameters)
+  res.send(`Try to make:<br/>${recipe}`)
+})
 
 app.use(authMiddleware);
 
