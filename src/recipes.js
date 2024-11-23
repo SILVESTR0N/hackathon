@@ -14,7 +14,26 @@ async function trackRecipe(recipe){
 }
 
 async function searchRecipe(cuisine, time, diet, main_ingredient){
-  return
+  const endpoint = 'https://api.spoonacular.com/recipes/complexSearch';
+
+  const params = new URLSearchParams({
+    apiKey: spoon_key,
+    cuisune: cuisine,
+    maxReadyTime: time,
+    diet: diet,
+    includeIngredients: main_ingredient,
+    number: 1
+  })
+  try {
+    const response = await fetch(`${endpoint}?${params.toString()}`)
+    if (!response.ok){
+      throw new Error(`Error: ${response.status}`)
+    }
+    const data = await response.json()
+    return data.results
+  } catch(error)
+  console.error("Error finding recipes")
+  throw error
 }
 
 async function addRecipe(cuisine, time, diet, main_ingredient, intolerances){
