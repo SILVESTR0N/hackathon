@@ -11,7 +11,7 @@ const spoon_key = process.env.SPOONACULAR_KEY
 
 const {login, logout} = require('./supabase')
 
-async function trackRecipe(recipe){
+async function trackSearchedRecipe(user, recipe){
   
   return
 }
