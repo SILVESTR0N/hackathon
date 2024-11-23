@@ -9,7 +9,10 @@ const supabase = createClient(domain, supabase_public_key)
 
 const spoon_key = process.env.SPOONACULAR_KEY
 
+const {login, logout} = require('./supabase')
+
 async function trackRecipe(recipe){
+  
   return
 }
 
@@ -17,7 +20,7 @@ async function searchRecipe(cuisine, time, diet, main_ingredient){
   return
 }
 
-async function addRecipe(cuisine, time, diet, main_ingredient, intolerances){
+async function addRecipe(cuisine, time, diet, main_ingredient){
   return
 }
 
