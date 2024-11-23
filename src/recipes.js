@@ -17,7 +17,7 @@ async function searchRecipe(cuisine, time, diet, main_ingredient){
   return
 }
 
-async function addRecipe(cuisine, time, diet, main_ingredient){
+async function addRecipe(cuisine, time, diet, main_ingredient, intolerances){
   return
 }
 
