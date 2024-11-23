@@ -17,7 +17,7 @@ async function trackRecipe(user, recipe){
   return
 }
 
-async function searchRecipe(parameters){
+async function searchRecipe(parameters, user){
   const endpoint = 'https://api.spoonacular.com/recipes/complexSearch';
   const params = new URLSearchParams({
     apiKey: spoon_key,
