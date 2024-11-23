@@ -51,3 +51,7 @@ async function addRecipe(name, cuisine_, time, diet_, main_ingredient){
   return
 }
 
+module.exports = {
+    searchRecipe,
+    addRecipe
+}
