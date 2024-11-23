@@ -21,10 +21,10 @@ async function searchRecipe(parameters){
   const endpoint = 'https://api.spoonacular.com/recipes/complexSearch';
   const params = new URLSearchParams({
     apiKey: spoon_key,
-    cuisune: parameters[0],
-    maxReadyTime: parameters[1],
-    diet: parameters[2],
-    includeIngredients: parameters[3],
+    cuisune: parameters[0] || '',
+    maxReadyTime: parameters[1] || '',
+    diet: parameters[2] || '',
+    includeIngredients: parameters[3] || '',
     number: 1
   })
   try {
@@ -33,7 +33,7 @@ async function searchRecipe(parameters){
       throw new Error(`Error: ${response.status}`)
     }
     const data = await response.json()
-    return data.results
+    return data.results[0].title
   } catch(error)
   console.error("Error finding recipes")
   throw error
