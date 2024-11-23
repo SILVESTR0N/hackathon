@@ -21,9 +21,12 @@ app.get("/ping", (_, res) => {
   res.json({ message: "pong" });
 });
 
-app.get('/search/:myparameters', async (req, res) => {
+app.get('/search/:myparameters', authMiddleware, async (req, res) => {
+  const user = req.user
+
+
   const parameters = (req.params.myparameters).split("_")
-  const recipe = await searchRecipe(parameters)
+  const recipe = await searchRecipe(parameters, user)
   res.send(`Try to make: ${recipe}`)
 })
 
