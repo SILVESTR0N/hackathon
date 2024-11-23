@@ -21,20 +21,20 @@ app.get("/ping", (_, res) => {
   res.json({ message: "pong" });
 });
 
-app.get('/search/:myparameters', authMiddleware, async (req, res) => {
-  const user = req.user
 
-
-  const parameters = (req.params.myparameters).split("_")
-  const recipe = await searchRecipe(parameters, user)
-  res.send(`Try to make: ${recipe}`)
-})
 
 name, cuisine_, time, diet_, main_ingredient
 app.get('/add/:myparameters', async (req, res) => {
-  const outParameters = (req.params.myparameters).split("_")
-  res.send(`Added Recipe: ${outParameters}`)
+  const outparameters = (req.params.myparameters).split("_")
+  console.log(outparameters[0])
+  try{
+  data = await addRecipe(outParameters[0],outparameters[1],outparameters[2],outparameters[3],outparemeters[4])
+  res.send(`Added Recipe`)
+  } catch(error){
+    console.log(error)
+  }
 })
+
 app.use(authMiddleware);
 
 // add routers to the app
