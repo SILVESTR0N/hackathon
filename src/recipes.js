@@ -10,8 +10,7 @@ const supabase = createClient(domain, supabase_public_key)
 const spoon_key = process.env.SPOONACULAR_KEY
 let global_user = '' 
 
-const {login, logout} = require('./supabase')
-import { login, logout } from "./utils/supabase.js";
+const {login, logout} = require('./utils/supabase')
 
 async function trackRecipe(user, recipe){
   
@@ -42,7 +41,9 @@ async function searchRecipe(cuisine, time, diet, main_ingredient){
 }
 
 async function addRecipe(cuisine, time, diet, main_ingredient){
-  
+  let inRecipe = {
+
+  }
   return
 }
 
