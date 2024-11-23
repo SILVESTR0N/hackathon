@@ -8,11 +8,12 @@ const supabase_public_key = process.env.SUPABASE_PUBLIC_KEY
 const supabase = createClient(domain, supabase_public_key)
 
 const spoon_key = process.env.SPOONACULAR_KEY
+let global_user = '' 
 
 const {login, logout} = require('./supabase')
 import { login, logout } from "./utils/supabase.js";
 
-async function trackSearchedRecipe(user, recipe){
+async function trackRecipe(user, recipe){
   
   return
 }
@@ -41,6 +42,7 @@ async function searchRecipe(cuisine, time, diet, main_ingredient){
 }
 
 async function addRecipe(cuisine, time, diet, main_ingredient){
+  
   return
 }
 
