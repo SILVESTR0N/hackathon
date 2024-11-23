@@ -17,7 +17,7 @@ async function trackRecipe(user, recipe){
   return
 }
 
-async function searchRecipe(parameters, user){
+/*async function searchRecipe(parameters, user){
   const endpoint = 'https://api.spoonacular.com/recipes/complexSearch';
   const params = new URLSearchParams({
     apiKey: spoon_key,
@@ -38,19 +38,20 @@ async function searchRecipe(parameters, user){
   console.error("Error finding recipes")
   throw error
 }
-
-async function addRecipe(name, cuisine_, time, diet_, main_ingredient){
+*/
+async function addRecipe(name, cuisine_, time, diet_, main_ingredient, user_){
   let inRecipe = {
+    user: user_,
     title: name,
     cuisine: cuisine_,
     maxReadyTime: time,
     diet: diet_,
     includeIngredients: main_ingredient
   }
-  return
+  const {data, error} = await supabase.from('recipes').insert([inRecipe])
+  return error
 }
 
 module.exports = {
-    searchRecipe,
     addRecipe
 }
