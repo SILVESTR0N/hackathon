@@ -23,7 +23,6 @@ app.get("/ping", (_, res) => {
 
 
 
-name, cuisine_, time, diet_, main_ingredient
 app.get('/add/:myparameters', async (req, res) => {
   const outparameters = (req.params.myparameters).split("_")
   console.log(outparameters[0])
