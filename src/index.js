@@ -21,8 +21,8 @@ app.get("/ping", (_, res) => {
   res.json({ message: "pong" });
 });
 
-app.get('/search/:parameters', async (req, res) => {
-  const parameters = (req.params.coverage).split("_")
+app.get('/search/:myparameters', async (req, res) => {
+  const parameters = (req.params.myparameters).split("_")
   const recipe = searchRecipe(parameters)
   res.send(`Try to make:<br/>${recipe}`)
 })
