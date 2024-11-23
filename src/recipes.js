@@ -40,9 +40,13 @@ async function searchRecipe(cuisine, time, diet, main_ingredient){
   throw error
 }
 
-async function addRecipe(cuisine, time, diet, main_ingredient){
+async function addRecipe(name, cuisine_, time, diet_, main_ingredient){
   let inRecipe = {
-
+    title: name,
+    cuisine: cuisine_,
+    maxReadyTime: time,
+    diet: diet_,
+    includeIngredients: main_ingredient
   }
   return
 }
